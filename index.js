@@ -20,7 +20,7 @@ function startGame(board, player) {
 
 function nextMove(board, player) {
     clearConsole(true);
-    rl.question("\n          You are playing: " + player.color + "\n         ------------------------\n\nPlease use the \"a1 h8\" format to move your pieces\n\n" + board.displayBoard() + "\n\nYour move: ", function(input) {
+    rl.question("\n          You are playing: " + player.color + "\n                  Score: " + player.score + "\n         ------------------------\n\nPlease use the \"a1 h8\" format to move your pieces\n\n" + board.displayBoard() + "\n\nYour move: ", function(input) {
         player.move(board, input, function(success, resp) {
             if (!success) {
                 console.log(resp);
@@ -78,7 +78,7 @@ function setUpBoard() {
     board[boardSize - 1][3] = new Piece("King", player.color);
     board[0][3] = new Piece("King", colors.join("").split(player.color).filter(string => string != "")[0]);
 
-    var gameBoard = new Board(board, boardSize, [], [], []);
+    var gameBoard = new Board(board, boardSize, ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""], [], []);
 
     return [gameBoard, player];
 }

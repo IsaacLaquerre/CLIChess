@@ -38,4 +38,8 @@ export default class Board {
 
         return output;
     }
+
+    gameOver() {
+        //Game over
+    }
 }
